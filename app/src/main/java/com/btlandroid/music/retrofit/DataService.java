@@ -17,6 +17,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface DataService {
     @GET("quangcao.php")
@@ -73,18 +74,18 @@ public interface DataService {
     Call<List<BaiHat>> getListSongBySearch(@Field("tuKhoa") String keyWord);
 
 
-//    @FormUrlEncoded
-//    @POST("process_login_with_facebook.php")
-//    Call<String> loginByFacebook(@Field("user_IdFacebook") String user_IdFacebook
-//                                , @Field("user_name") String user_name
-//                                , @Field("user_url_image") String user_url_image);
-//
-//    @FormUrlEncoded
-//    @POST("process_login_with_google.php")
-//    Call<String> loginByGoogle(@Field("user_name") String user_name
-//            , @Field("user_email") String user_email
-//            , @Field("user_IdGoogle") String user_IdGoogle
-//            , @Field("user_url_image") String user_url_image);
+    @FormUrlEncoded
+    @POST("process_login_with_facebook.php")
+    Call<String> loginByFacebook(@Field("user_IdFacebook") String user_IdFacebook
+                                , @Field("user_name") String user_name
+                                , @Field("user_url_image") String user_url_image);
+
+    @FormUrlEncoded
+    @POST("process_login_with_google.php")
+    Call<String> loginByGoogle(@Field("user_name") String user_name
+            , @Field("user_email") String user_email
+            , @Field("user_IdGoogle") String user_IdGoogle
+            , @Field("user_url_image") String user_url_image);
 
     @GET("mvhot.php")
     Call<List<Mv>> getMVHot();
@@ -108,14 +109,14 @@ public interface DataService {
     @POST("list_baihat_yeuthich_user.php")
     Call<List<BaiHat>> getListSongLiked(@Field("user_id") Integer user_id);
 
-//    @FormUrlEncoded
-//    @GET("list_baihat_yeuthich_user.php")
-//    Call<List<BaiHat>> getListSongLiked(@Query("id_FbOrGoogle") String id_FbOrGoogle
-//            , @Query("type_login") int type_login);
+    @FormUrlEncoded
+    @GET("list_baihat_yeuthich_user.php")
+    Call<List<BaiHat>> getListSongLiked(@Query("id_FbOrGoogle") String id_FbOrGoogle
+            , @Query("type_login") int type_login);
 
-//    @FormUrlEncoded
-//    @POST("getUserID.php")
-//    Call<Integer> getUserId(@Field("id_FbOrGoogle") String id_FbOrGoogle, @Field("type_login") int type_login);
+    @FormUrlEncoded
+    @POST("getUserID.php")
+    Call<Integer> getUserId(@Field("id_FbOrGoogle") String id_FbOrGoogle, @Field("type_login") int type_login);
 
 
     @FormUrlEncoded
